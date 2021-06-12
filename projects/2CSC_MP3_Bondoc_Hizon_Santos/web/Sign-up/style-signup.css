@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+/* UNIVERSAL */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* COVERS THE ENTIRE BODY */
+
+.main{
+    background:linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url('/2CSC_MP3_Bondoc_Hizon_Santos/Images/Background_4.png') no-repeat top center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 755px;
+}
+
+/* NAVIGATION BAR */
+
+.logo_bar{
+    margin: auto;
+    float: right;
+    padding: 10px;
+    margin-right: 15%;
+}
+
+.logo a{
+    font-size: 32px;
+    color: #fff;
+}
+
+.signup_bar{
+    height: 90%
+}
+
+/* LOGIN SECTION */
+
+.signup{
+    padding-top: 12.5%;
+    margin-left: 40%;
+    margin-right: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup h1{
+    color: #fff;
+    border-bottom: 5px solid #fff;
+    margin-bottom: 25px;
+    padding: 10px 0;
+}
+
+.signup h4{
+    color: #fffeee;
+    padding: 10px;
+}
+
+.signup a{
+    color: #EEE9E9;
+}
+
+.signup a:hover{
+    color: #CDC9C9;
+}
+
+.textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+.btn{
+    width: 100%;
+    background: none;
+    border: 2px solid #fff;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.signup_footer {
+    color: #fff;
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+
+@media (max-height: 800px){
+    .main{
+        height: 790px;
+    }
+}
+
+@media (min-height: 800px){
+    .main{
+	height: 970px;
+    }
+    
+    .login_footer{
+        padding-top: 0.5%;
+    }
+}

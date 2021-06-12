@@ -1,0 +1,79 @@
+package test;
+
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+
+public class TestClass {
+    public static void main(String[] args) 
+    {
+        try
+        {
+            String[] array = fileReader();
+            
+            Class.forName(array[0]);  
+            Connection con = DriverManager.getConnection(array[1], array[2], array[3]);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(array[4]);
+            
+            System.out.println("LOADED DRIVER ----> " + array[0]);
+            System.out.println("CONNECTED TO ----> " + array[1]);
+            System.out.println("EXECUTING QUERY ----> " + array[4]);
+            
+            while(rs.next())
+            {
+                System.out.println("NAME: " + rs.getString("STUDENT_NAME").trim());
+                System.out.println("STUDENT #: " + rs.getString("STUDENT_NUMBER").trim());
+                System.out.println("COURSE: " + rs.getString("COURSE").trim());
+                System.out.println("");
+            }
+            
+            rs.close();
+            stmt.close();
+            con.close();
+        }
+        
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    public static String[] fileReader()
+    {
+        String[] tempArray = null;
+        
+        try
+        {
+            File info = new File("C:\\Users\\angel\\Documents\\NetBeansProjects\\MachineProblem1\\info.txt");
+            
+            String data = "";
+            Scanner scan = new Scanner(info);
+            List<String> temp = new ArrayList<String>();
+            
+            if(info.exists())
+            {
+                while(scan.hasNextLine())
+                {
+                    data = scan.nextLine();
+                    temp.add(data);
+                }
+
+                tempArray = temp.toArray(new String[0]);
+                scan.close();
+            }
+
+            else
+            {
+                throw new FileNotFoundException();
+            }
+        }
+        
+        catch(FileNotFoundException e)
+        {
+            System.out.println("File Does not Exist");
+        }
+        
+        return tempArray;
+    }
+}

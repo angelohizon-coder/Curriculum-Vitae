@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+/* UNIVERSAL */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* NAVIGATION BAR */
+
+.about_title, .project_title, .info_title{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.navigation_bar{
+    width: 100%;
+    height: 65px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo a{
+    font-size: 32px;
+    color: #fff;
+}
+
+.navigation_bar_items ul{
+    display: flex;
+}
+
+.navigation_bar_items ul li{
+    margin: 0 10px;
+}
+
+.navigation_bar_items ul li input{
+    text-transform: uppercase;
+    background-color: #fff;
+    border: none;
+    color: #000;
+    transition: 0.3s ease;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.navigation_bar_items ul li input:hover{
+    background-color: transparent;
+    color: #fff;
+}
+
+/* BANNER IMAGE */
+
+.image{
+    background: url('/2CSC_MP3_Bondoc_Hizon_Santos/Images/Background_2.jpg') no-repeat top center;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 0px;
+    width: 100%;
+    height: 755px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_content{
+    text-align: center;
+    color: #fff;
+}
+
+.image_content h1{
+    text-transform: uppercase;
+    line-height: 38px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.image_content h1 span{
+    color: #fb2274;
+}
+
+/* INFORMATION SECTION */
+
+.info{
+    background: url('/2CSC_MP3_Bondoc_Hizon_Santos/Images/Background_3.png') no-repeat top center ;
+
+    background-position: center;
+    background-size: cover;
+
+    padding: 0px;
+    width: 100%;
+    height: 755px;
+    
+    border-style: outset;
+}
+
+.info_compartments{
+    display: flex;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.btn{
+    width: 50%;
+    background: none;
+    background-color: #000;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 25%;
+    color: #fff;
+}
+
+.btn:hover{
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+
+.info_information{
+    width: 100%;
+}
+
+.about h3{
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+
+.about_image{
+    display: flex;
+    justify-content: space-around;
+}
+
+.about_image img{
+    height: 95%;
+    width: 95%;
+    padding-bottom: 2.5px;
+}
+
+.about_image img:hover{
+    transform: scale(1.025);
+}
+
+.about_description{
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.home_footer{
+    padding-top: 5%;
+    color: #000;
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+
+@media (max-height: 800px){
+    .image, .info{
+	height: 790px;
+    }
+}
+
+@media (min-height: 900px){
+    .image, .info{
+	height: 970px;
+    }
+
+    .home_footer{
+        padding-top: 8.55%;
+    }
+    
+    .info_social_media, .info_information{
+        margin-top: 5%;
+    }
+    
+    .info_social_media img{
+	height: 95;
+	width: 95%;
+    }
+}
+
+@media (max-width: 800px){
+    .navigation_bar{
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	line-height: 40px;
+    }
+    
+    .navigation_bar_items ul{
+	flex-direction: column;
+    }
+
+
+    .info_social_media{
+        padding-top: 20%;
+    }
+    
+    .info_social_media img{
+	height: 90%;
+	width: 90%;
+    }
+}

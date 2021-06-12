@@ -1,0 +1,25 @@
+/*
+  https://colorhunt.co/palette/84126
+  https://colorhunt.co/palette/289938
+*/
+  body {
+    background-color: #f9f9f9;
+  }
+
+  hr {
+    border-top-style: dotted;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-width: 0.5em;
+    width: 5%;
+    color: #a6e4e7;
+  }
+
+  h1{
+    color: #b4846c;
+  }
+
+  h3{
+    color: #8f8787;
+  }

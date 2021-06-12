@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+/* UNIVERSAL */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* COVERS THE ENTIRE BODY */
+
+.main{
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('Error_Images/Background_5.jpg') no-repeat top center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 755px;
+}
+
+/* HEADER */
+
+.logo_bar{
+    margin: auto;
+    float: right;
+    padding: 10px;
+    margin-right: 15%;
+}
+
+.logo a{
+    font-size: 32px;
+    color: #fff;
+}
+
+/* ERROR MESSAGE */
+
+.error_message{
+    height: 90%
+}
+
+.error{
+    padding-top: 15%;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.error h1{
+    color: #fff;
+    border-bottom: 5px solid #fff;
+    margin-bottom: 25px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.error h2{
+    color: #FFD700;
+}
+
+.btn{
+    width: 100%;
+    background: none;
+    border: 2px solid #fff;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.error_footer {
+    color: #fff;
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+
+@media (max-height: 800px){
+    .main{
+        height: 790px;
+    }
+}
+
+@media (min-height: 900px){
+    .main{
+	height: 970px;
+    }
+    
+    .error{
+        padding-top: 20%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+    
+    .error_footer{
+        padding-top: 0.5%;
+    }
+}

@@ -1,0 +1,138 @@
+package test;
+
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+
+public class TestClass {
+    public static void main(String[] args) 
+    {
+        try
+        {
+            String[] data = fileReader();
+            
+            String driver = data[0];
+            String url = data[1];
+            String username = data[2];
+            String password = data[3];
+            String query = data[4];
+            
+            Class.forName(driver);  
+            Connection con = DriverManager.getConnection(url, username, password);
+            
+            System.out.println("LOADED DRIVER ----> " + driver);
+            System.out.println("CONNECTED TO ----> " + url);
+            System.out.println("EXECUTING QUERY ----> " + query);
+            for(int i = 0; i <= 100; i++)
+                System.out.print("=");
+            System.out.println();
+            
+            PreparedStatement pstmt = pstmt = con.prepareStatement(query);
+            
+            if(query.contains("?"))
+            {
+                for(int i = 0; i < counter(query); i++)
+                {
+                    pstmt.setString(1+i, data[5+i]);
+                }
+            }
+            
+            
+            
+            if(query.contains("SELECT"))
+            {
+                ResultSet rs = pstmt.executeQuery();
+                while(rs.next())
+                {
+                    if(query.contains("STUDENT_NAME") || query.contains("*"))
+                        System.out.println("NAME: " + rs.getString("STUDENT_NAME").trim());
+                    if(query.contains("STUDENT_NUMBER") || query.contains("*"))
+                        System.out.println("STUDENT #: " + rs.getString("STUDENT_NUMBER").trim());
+                    if(query.contains("COURSE") || query.contains("*"))
+                        System.out.println("COURSE: " + rs.getString("COURSE").trim());
+                    System.out.println("");
+                }
+                
+                rs.close();
+            }
+            
+            else if(query.contains("UPDATE"))
+            {
+                int update = pstmt.executeUpdate();
+                System.out.println("Database has been UPDATED");
+            }
+            
+            else if(query.contains("INSERT"))
+            {
+                int insert = pstmt.executeUpdate();
+                System.out.println("Information has been INSERTED");
+            }
+            
+            else if(query.contains("DELETE"))
+            {
+                int delete = pstmt.executeUpdate();
+                System.out.println("Information has been DELETED");
+            }
+
+            pstmt.close();
+            con.close();
+        }
+        
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    public static int counter(String query)
+    {
+        char questionMark = '?';
+        int count = 0;
+
+        for (int i = 0; i < query.length(); i++) {
+            if (query.charAt(i) == questionMark) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    public static String[] fileReader()
+    {
+        String[] tempArray = null;
+        
+        try
+        {
+            File info = new File("C:\\Users\\angel\\Documents\\NetBeansProjects\\MachineProblem1\\info.txt");
+            
+            String data = "";
+            Scanner scan = new Scanner(info);
+            List<String> temp = new ArrayList<String>();
+            
+            if(info.exists())
+            {
+                while(scan.hasNextLine())
+                {
+                    data = scan.nextLine();
+                    temp.add(data);
+                }
+
+                tempArray = temp.toArray(new String[0]);
+                scan.close();
+            }
+
+            else
+            {
+                throw new FileNotFoundException();
+            }
+        }
+        
+        catch(FileNotFoundException e)
+        {
+            System.out.println("File Does not Exist");
+        }
+        
+        return tempArray;
+    }
+}

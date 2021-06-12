@@ -1,0 +1,7 @@
+org.apache.derby.jdbc.ClientDriver
+jdbc:derby://localhost:1527/MP1
+app
+app
+SELECT STUDENT_NUMBER, COURSE FROM STUDENTDB WHERE STUDENT_NAME = ?
+Hizon, Angelo
+
